@@ -1,1 +1,3 @@
-- src: outsideopen.bigfix_client
+- src: https://github.com/outsideopen/ansible-role-bigfix-client
+  version: master
+  name: outsideopen.bigfix_client
