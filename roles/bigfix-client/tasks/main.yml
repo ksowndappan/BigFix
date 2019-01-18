@@ -19,16 +19,20 @@
 - include: install.yml
   when: not bigfix_installed.stat.exists
 
-# - name: Download masthead from BigFix Server
+- name: Download masthead from BigFix Server
 # shell: curl "http://{{ bigfix_client_server_name }}:{{ bigfix_client_server_port }}/masthead/masthead.afxm" --output "{{ bigfix_client_conf_dir}}/actionsite.afxm"
+   src: /bigfix/actionsite.afxm
+   dest: {{ bigfix_client_conf_dir}}/actionsite.afxm
+   src: /bigfix/besclient.config
+   dest: /var/opt/BESClient/besclient.config
 
-- name: Copy required files
-    copy:
-      src: "{{ item.src }}"
-      dest: "{{ item.dest }}"
-    with_items:
-      - { src: '/bigfix/actionsite.afxm',dest: '/etc/opt/BESClient/actionsite.afxm'}
-      - { src: '/bigfix/besclient.config',dest: '/var/opt/BESClient/besclient.config'}
+#- name: Copy required files
+#    copy:
+#      src: "{{ item.src }}"
+#      dest: "{{ item.dest }}"
+#    with_items:
+#      - { src: '/bigfix/actionsite.afxm',dest: '/etc/opt/BESClient/actionsite.afxm'}
+#      - { src: '/bigfix/besclient.config',dest: '/var/opt/BESClient/besclient.config'}
 
 - name: Start the service
   service:
