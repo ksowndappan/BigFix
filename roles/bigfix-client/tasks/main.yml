@@ -27,8 +27,8 @@ copy:
       src: "{{ item.src }}"
       dest: "{{ item.dest }}"
     with_items:
-      - { src: '/bigfix/actionsite.afxm',dest: '/etc/opt/BESClient/'}
-      - { src: '/bigfix/besclient.config',dest: '/var/opt/BESClient'}
+      - { src: '/bigfix/actionsite.afxm',dest: '/etc/opt/BESClient/actionsite.afxm'}
+      - { src: '/bigfix/besclient.config',dest: '/var/opt/BESClient/besclient.config'}
 
 - name: Start the service
   service:
