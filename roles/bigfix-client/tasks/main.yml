@@ -20,9 +20,10 @@
   when: not bigfix_installed.stat.exists
 
 - name: Download masthead from BigFix Server
-# shell: curl "http://{{ bigfix_client_server_name }}:{{ bigfix_client_server_port }}/masthead/masthead.afxm" --output "{{ bigfix_client_conf_dir}}/actionsite.afxm"
    src: /bigfix/actionsite.afxm
    dest: {{ bigfix_client_conf_dir}}/actionsite.afxm
+   
+- name: Populate Besclient config file
    src: /bigfix/besclient.config
    dest: /var/opt/BESClient/besclient.config
 
