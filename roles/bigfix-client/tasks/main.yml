@@ -20,12 +20,14 @@
   when: not bigfix_installed.stat.exists
 
 - name: Download masthead from BigFix Server
-   src: /bigfix/actionsite.afxm
-   dest: {{ bigfix_client_conf_dir}}/actionsite.afxm
+  copy:
+     src: /bigfix/actionsite.afxm
+     dest: {{ bigfix_client_conf_dir}}/actionsite.afxm
    
 - name: Populate Besclient config file
-   src: /bigfix/besclient.config
-   dest: /var/opt/BESClient/besclient.config
+  copy:
+     src: /bigfix/besclient.config
+     dest: /var/opt/BESClient/besclient.config
 
 #- name: Copy required files
 #    copy:
