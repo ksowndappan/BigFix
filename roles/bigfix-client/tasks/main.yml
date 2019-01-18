@@ -22,20 +22,12 @@
 - name: Download masthead from BigFix Server
   copy:
      src: /bigfix/actionsite.afxm
-     dest: "{{ bigfix_client_conf_dir}}"/actionsite.afxm
+     dest: /etc/opt/actionsite.afxm
    
 - name: Populate Besclient config file
   copy:
      src: /bigfix/besclient.config
      dest: /var/opt/BESClient/besclient.config
-
-#- name: Copy required files
-#    copy:
-#      src: "{{ item.src }}"
-#      dest: "{{ item.dest }}"
-#    with_items:
-#      - { src: '/bigfix/actionsite.afxm',dest: '/etc/opt/BESClient/actionsite.afxm'}
-#      - { src: '/bigfix/besclient.config',dest: '/var/opt/BESClient/besclient.config'}
 
 - name: Start the service
   service:
