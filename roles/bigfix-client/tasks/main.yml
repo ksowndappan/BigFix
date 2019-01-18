@@ -22,7 +22,7 @@
 - name: Download masthead from BigFix Server
   copy:
      src: /bigfix/actionsite.afxm
-     dest: /etc/opt/actionsite.afxm
+     dest: /etc/opt/BESClient/actionsite.afxm
    
 - name: Populate Besclient config file
   copy:
