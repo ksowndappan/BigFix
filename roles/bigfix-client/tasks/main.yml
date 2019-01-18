@@ -22,7 +22,7 @@
 - name: Download masthead from BigFix Server
   copy:
      src: /bigfix/actionsite.afxm
-     dest: {{ bigfix_client_conf_dir}}/actionsite.afxm
+     dest: "{{ bigfix_client_conf_dir}}"/actionsite.afxm
    
 - name: Populate Besclient config file
   copy:
